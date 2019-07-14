@@ -66,8 +66,8 @@ workflows:
 
   # this `integration-tests_prod-release` workflow will ignore commits
   # it is only triggered by git tags, which are created in the job above
-  integration-tests_prod-release:
-    jobs:
+  # integration-tests_prod-release:
+  #   jobs:
       # - your integration test jobs go here
       # - you will want to call each integration testing job twice,
       # - each under a different name:
