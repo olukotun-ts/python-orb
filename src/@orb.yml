@@ -3,5 +3,5 @@ version: 2.1
 description: >
   This orb will assist python users
 
-orbs:
+# orbs:
   # if your orb will use any other orbs, you can import them here
