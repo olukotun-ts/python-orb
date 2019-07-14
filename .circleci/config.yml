@@ -6,6 +6,14 @@ version: 2.1
 orbs:
   # your-orb: your-namespace/your-orb@dev:alpha
   orb-tools: circleci/orb-tools@8.27.3
+  python-orb: fernfernfern/python-orb@dev:alpha
+
+jobs:
+  orb-job:
+    executor: python-orb/default
+    steps:
+      - run: echo python version
+
 
 workflows:
   # this `lint-pack_validate_publish-dev` workflow will run on any commit
@@ -36,7 +44,7 @@ workflows:
       # key in CircleCI via SSH Permissions, with github.com as Hostname)
       - orb-tools/trigger-integration-workflow:
           name: trigger-integration-dev
-          ssh-fingerprints: # your SSH key fingerprint
+          ssh-fingerprints: "c8:df:89:8d:f5:3c:85:16:87:b1:53:b3:31:3d:9a:ea"
           requires:
             - orb-tools/publish-dev
           filters:
@@ -58,14 +66,14 @@ workflows:
 
   # this `integration-tests_prod-release` workflow will ignore commits
   # it is only triggered by git tags, which are created in the job above
-  # integration-tests_prod-release:
-  #   jobs:
-  #     # - your integration test jobs go here
-  #     # - you will want to call each integration testing job twice,
-  #     # - each under a different name:
-  #     # - once, for integration tests triggered by non-master-branch commits
-  #     # - and again, for tests triggered by commits to master
-  #     # - only commits to master should potentially trigger a prod release
+  integration-tests_prod-release:
+    jobs:
+      # - your integration test jobs go here
+      # - you will want to call each integration testing job twice,
+      # - each under a different name:
+      # - once, for integration tests triggered by non-master-branch commits
+      # - and again, for tests triggered by commits to master
+      # - only commits to master should potentially trigger a prod release
 
   #     # patch, minor, or major publishing
   #     - orb-tools/dev-promote-prod:
