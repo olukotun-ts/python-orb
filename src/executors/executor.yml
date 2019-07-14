@@ -3,8 +3,8 @@ description: >
 
 default:
   description: |
-    The default executor allows you to pass in a Python and/or Debian version. 
-    This will set your job to use one of the CircleCI python convenience images. 
+    The default executor allows you to pass in a Python and/or Debian version.
+    This will set your job to use one of the CircleCI python convenience images.
     The envuroment will be Python 2.7 with Debian stretch by default.
   parameters:
     python-version:
