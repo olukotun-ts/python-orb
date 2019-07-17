@@ -1,5 +1,11 @@
 version: 2.1
 
+# yaml anchor filters
+integration-dev_filters: &integration-dev_filters
+  branches:
+    ignore: /.*/
+  tags:
+    only: /integration-.*/
 integration-master_filters: &integration-master_filters
   branches:
     ignore: /.*/
@@ -75,6 +81,8 @@ workflows:
   integration-tests_prod-release:
     jobs:
       - orb-job:
+          filters: *integration-dev_filters
+      - orb-job:
           filters: *integration-master_filters
 
       # - your integration test jobs go here
@@ -126,10 +134,5 @@ workflows:
   #           tags:
   #             only: /master-major.*/
 
-# yaml anchor filters
-integration-dev_filters: &integration-dev_filters
-  branches:
-    ignore: /.*/
-  tags:
-    only: /integration-.*/
+
 
