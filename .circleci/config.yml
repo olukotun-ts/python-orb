@@ -68,7 +68,9 @@ workflows:
   # it is only triggered by git tags, which are created in the job above
   integration-tests_prod-release:
     jobs:
-      - orb-job
+      - orb-job:
+          filters: *integration-master_filters
+
       # - your integration test jobs go here
       # - you will want to call each integration testing job twice,
       # - each under a different name:
