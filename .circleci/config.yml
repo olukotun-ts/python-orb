@@ -24,7 +24,7 @@ jobs:
   orb-job:
     executor: python-orb/default
     steps:
-      - run: python version
+      - run: python --version
 
 
 workflows:
