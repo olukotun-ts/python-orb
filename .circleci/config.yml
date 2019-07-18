@@ -73,9 +73,7 @@ workflows:
   # it is only triggered by git tags, which are created in the job above
   integration-tests_prod-release:
     jobs:
-      - orb-job:
-          pre-steps:
-            - python-orb/install-pipenv
+      - python-orb/test-orb-job:
           filters: *integration-dev_filters
       - orb-job:
           filters: *integration-master_filters
