@@ -20,13 +20,6 @@ orbs:
   orb-tools: circleci/orb-tools@8.27.3
   python-orb: fernfernfern/python-orb@dev:alpha
 
-jobs:
-  orb-job:
-    executor: python-orb/default
-    steps:
-      - run: python --version
-
-
 workflows:
   # this `lint-pack_validate_publish-dev` workflow will run on any commit
   lint-pack_validate_publish-dev:
