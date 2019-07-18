@@ -73,9 +73,9 @@ workflows:
   # it is only triggered by git tags, which are created in the job above
   integration-tests_prod-release:
     jobs:
-      - python-orb/test-orb-job:
+      - python-orb/test-python-orb:
           filters: *integration-dev_filters
-      - orb-job:
+      - python-orb/test-python-orb:
           filters: *integration-master_filters
 
       # - your integration test jobs go here
