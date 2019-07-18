@@ -25,6 +25,7 @@ jobs:
     executor: python-orb/default
     steps:
       - run: python --version
+      - python-orb/install-pipenv
 
 
 workflows:
