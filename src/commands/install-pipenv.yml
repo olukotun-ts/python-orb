@@ -1,0 +1,5 @@
+description: >
+  Command that will install pipenv through pip
+
+command: |
+  sudo pip install pipenv
