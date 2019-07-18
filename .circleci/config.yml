@@ -25,7 +25,6 @@ jobs:
     executor: python-orb/default
     steps:
       - run: python --version
-      - python-orb/install-pipenv
 
 
 workflows:
@@ -82,6 +81,8 @@ workflows:
   integration-tests_prod-release:
     jobs:
       - orb-job:
+          pre-steps:
+            - python-orb/install-pipenv
           filters: *integration-dev_filters
       - orb-job:
           filters: *integration-master_filters
